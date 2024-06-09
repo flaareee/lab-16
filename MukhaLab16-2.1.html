@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Background Color</title>
+    <style>
+        .red {
+            background-color: red;
+        }
+
+        .green {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">Div 1</div>
+    <div id="div2">Div 2</div>
+    <div id="div3">Div 3</div>
+    
+    <script>
+        const div1 = document.getElementById('div1');
+        const div2 = document.getElementById('div2');
+        const div3 = document.getElementById('div3');
+
+        function toggleColor(event) {
+            if (event.target.classList.contains('red')) {
+                event.target.classList.remove('red');
+                event.target.classList.add('green');
+            } else {
+                event.target.classList.remove('green');
+                event.target.classList.add('red');
+            }
+        }
+
+        function addRemoveListener(event) {
+            toggleColor(event);
+            event.target.removeEventListener('click', addRemoveListener);
+            event.target.addEventListener('click', toggleColor);
+        }
+
+        div1.addEventListener('click', addRemoveListener);
+        div2.addEventListener('click', addRemoveListener);
+        div3.addEventListener('click', addRemoveListener);
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Hover Event</title>
+</head>
+<body>
+    <a href="#" id="link1">Link 1</a>
+    <a href="#" id="link2">Link 2</a>
+    <a href="#" id="link3">Link 3</a>
+    
+    <script>
+        const link1 = document.getElementById('link1');
+        const link2 = document.getElementById('link2');
+        const link3 = document.getElementById('link3');
+        
+        function addTitle(event) {
+            event.target.setAttribute('title', event.target.textContent);
+        }
+        
+        function removeTitle(event) {
+            event.target.removeAttribute('title');
+        }
+        
+        link1.addEventListener('mouseenter', addTitle);
+        link1.addEventListener('mouseleave', removeTitle);
+        
+        link2.addEventListener('mouseenter', addTitle);
+        link2.addEventListener('mouseleave', removeTitle);
+        
+        link3.addEventListener('mouseenter', addTitle);
+        link3.addEventListener('mouseleave', removeTitle);
+    </script>
+</body>
+</html>
